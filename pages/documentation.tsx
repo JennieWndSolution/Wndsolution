@@ -1,6 +1,6 @@
 import Layout from "../components/layout";
 
-function Dokumentation() {
+function Documentation() {
   return (
     <Layout>
       <div>Hej Dokumentation</div>
@@ -8,4 +8,4 @@ function Dokumentation() {
   );
 }
 
-export default Dokumentation;
+export default Documentation;
