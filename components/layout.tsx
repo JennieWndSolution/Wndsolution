@@ -25,7 +25,6 @@ function Layout({ children }) {
       <Head>
         <title>House Project {visibleMenu}</title>
         <link rel="icon" href="/favicon-32x32.png" />
-
         <link
           rel="preload"
           href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"

@@ -16,15 +16,11 @@ export default function Home() {
 
   return (
     <>
-      {items.map((item, idx) => (
-        <Link href={item.link} key={idx}>
-          <a className={styles.card}>
-            <div className={styles.cardCon}>
-              <h3>{item.text}</h3>
-            </div>
-          </a>
-        </Link>
-      ))}
+      <img
+        className={styles.homePage}
+        src="https://i.pinimg.com/originals/27/02/48/2702489cfb0b9f8aec2f827ae461f528.jpg"
+        alt=""
+      />
     </>
   );
 }
