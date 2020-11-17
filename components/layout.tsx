@@ -44,7 +44,7 @@ function Layout({ children }) {
               type="button"
               onClick={() => toggleVisibility()}
             >
-              <i className="fas fa-hamburger fa-3x"></i>
+              <i aria-hidden className="fas fa-hamburger fa-3x"></i>
             </button>
           </nav>
           <Link href={"/"}>
