@@ -1,30 +1,83 @@
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import { useEffect, useState } from "react";
+import styles from "../styles/Home.module.scss";
 
 function Layout({ children }) {
+  const [visibleMenu, setvisibleMenu] = useState(false);
+  const menuItems = [
+    { name: "Husleverantörer", link: "/hus" },
+    { name: "Tomter", link: "/tomter" },
+    { name: "Budget", link: "/budget" },
+    { name: "Krav/Önskelista", link: "/krav" },
+  ];
+
+  useEffect(() => {
+    setvisibleMenu(!visibleMenu);
+  }, []);
+
+  const toggleVisibility = () => {
+    setvisibleMenu(!visibleMenu);
+  };
+
   return (
     <>
       <Head>
-        <title>Wndsolution</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>House Project {visibleMenu}</title>
+        <link rel="icon" href="/favicon-32x32.png" />
+
         <link
+          rel="preload"
           href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+          as="style"
+        ></link>
+        <link
           rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
         ></link>
       </Head>
 
-      <header className={styles.header}>
-        <Link href={"/"}>
-          <h1 className={styles.title}>Wndsolution</h1>
-        </Link>
+      <header className={styles.header} role="banner">
+        <div className={styles.innerHeader}>
+          <nav className={styles.hamburger}>
+            <button
+              className={styles.navbar_toggler}
+              type="button"
+              onClick={() => toggleVisibility()}
+            >
+              <i className="fas fa-hamburger fa-3x"></i>
+            </button>
+          </nav>
+          <Link href={"/"}>
+            <div className={styles.logo}>
+              <h1 className={styles.title}>House Project</h1>
+            </div>
+          </Link>
+        </div>
+        {!visibleMenu && (
+          <ul className={styles.menu}>
+            {menuItems.map((menuItem, idx) => (
+              <li key={idx} className={styles.menu_item}>
+                <Link href={menuItem.link}>
+                  <a className="test" onClick={() => toggleVisibility()}>
+                    {menuItem.name}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </header>
 
       <main className={styles.container}>
         <div className={styles.main}>{children}</div>
       </main>
 
-      <footer className={styles.footer}></footer>
+      <footer className={styles.footer}>© 2020 House Project</footer>
+      <script
+        src="https://kit.fontawesome.com/f3d6559d6e.js"
+        crossOrigin="anonymous"
+      ></script>
     </>
   );
 }

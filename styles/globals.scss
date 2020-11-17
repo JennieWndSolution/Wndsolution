@@ -1,0 +1,75 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* todo */
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  & > * {
+    flex: 1 100%;
+  }
+  
+  .todo-list {
+    list-style: none;
+    
+    .item {
+      padding: 1rem;
+      border: 1px solid rgb(224, 220, 220);
+      border-radius: 5px;
+      margin: 0.1rem;
+    }
+  }
+
+  .column-name {
+    display: block;
+    text-align: center;
+    margin: 1rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+  
+  .todo-item {
+    flex: 1 auto;
+    
+    .add-todo {
+      padding: 1rem;
+      border: 1px solid #e0dcdc;
+      border-radius: 5px;
+      margin: 0.1rem;
+      width: 100%;
+    }
+    .one {
+      order: 0;
+    }
+
+    .two {
+      order: 1;
+    }
+
+    .three {
+      order: 2;
+    }
+  }
+}
+
+
+
+

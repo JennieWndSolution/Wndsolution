@@ -1,41 +1,30 @@
-import Head from "next/head";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
-import Layout from "../components/layout";
+import styles from "../styles/Home.module.scss";
 
 export default function Home() {
+  const items = [
+    { text: "1", link: "" },
+    { text: "2", link: "" },
+    { text: "3", link: "" },
+    { text: "4", link: "" },
+    { text: "4", link: "" },
+    { text: "4", link: "" },
+    { text: "4", link: "" },
+    { text: "4", link: "" },
+    { text: "4", link: "" },
+  ];
+
   return (
-    <Layout>
-      <div className={styles.grid}>
-        <Link href="/documentation">
+    <>
+      {items.map((item, idx) => (
+        <Link href={item.link} key={idx}>
           <a className={styles.card}>
             <div className={styles.cardCon}>
-              <h3>Dokumentation &rarr;</h3>
-              <p>Bra länkar och information.</p>
+              <h3>{item.text}</h3>
             </div>
           </a>
         </Link>
-
-        <Link href="/todo">
-          <a className={styles.card}>
-            <div className={styles.cardCon}>
-              <h3>Att titta på &rarr;</h3>
-              <p>Tekniker, ramverk etc.</p>
-            </div>
-          </a>
-        </Link>
-
-        <Link href="/examples">
-          <a className={styles.card}>
-            <div className={styles.cardCon}>
-              <h3>Exempel &rarr;</h3>
-              <p>Exempel och implementationer.</p>
-            </div>
-          </a>
-        </Link>
-
-        <div className={styles.circle}></div>
-      </div>
-    </Layout>
+      ))}
+    </>
   );
 }
