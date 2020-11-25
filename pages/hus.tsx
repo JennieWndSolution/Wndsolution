@@ -23,31 +23,31 @@ function Hus() {
     {
       name: "Anebyhus",
       link: "https://anebyhusgruppen.se/",
-      img: "",
+      img: "/anebyhus_vinkel_900x600.jpg",
       alt: "Anebyhus",
     },
     {
       name: "Götenehus",
       link: "https://gotenehus.se/",
-      img: "",
+      img: "/ekhem-2020-1344x731.jpg",
       alt: "Götenehus",
     },
     {
       name: "Älvsbyhus",
       link: "https://www.alvsbyhus.se/",
-      img: "",
+      img: "/alvsbyhus.jpg",
       alt: "Älvsbyhus",
     },
     {
       name: "Smålandsvillan",
       link: "https://www.smalandsvillan.se/",
-      img: "",
+      img: "/smalandsvillan.jpg",
       alt: "Smålandsvillan",
     },
     {
       name: "Trivselhus",
       link: "https://www.trivselhus.se/",
-      img: "",
+      img: "/trivselhus.jpg",
       alt: "Trivselhus",
     },
   ];
