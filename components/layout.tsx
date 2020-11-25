@@ -7,9 +7,15 @@ function Layout({ children }) {
   const [visibleMenu, setvisibleMenu] = useState(false);
   const menuItems = [
     { name: "Husleverantörer", link: "/hus" },
-    { name: "Tomter", link: "/tomter" },
-    { name: "Budget", link: "/budget" },
+    { name: "Områden", link: "/areas" },
+    { name: "Kalkyl", link: "/budget" },
     { name: "Krav/Önskelista", link: "/krav" },
+    { name: "Bank", link: "/bank" },
+    { name: "Admin/Juridik", link: "/admin" },
+    { name: "Mellanboende", link: "/tempLiving" },
+    { name: "Lärdommar", link: "/lessons" },
+    { name: "Inspiration", link: "/inspiration" },
+    { name: "Process", link: "/process" },
   ];
 
   useEffect(() => {
@@ -23,7 +29,7 @@ function Layout({ children }) {
   return (
     <>
       <Head>
-        <title>House Project {visibleMenu}</title>
+        <title>House Project</title>
         <link rel="icon" href="/favicon-32x32.png" />
         <link
           rel="preload"

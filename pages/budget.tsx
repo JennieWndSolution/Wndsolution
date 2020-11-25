@@ -3,7 +3,10 @@ function Todo() {
 
   return (
     <div>
-      <div className="todo">
+      <div>Budget 6 000 000 000</div>
+      <div>Maxtak 8 000 000 000</div>
+      <div>Delar av budget</div>
+      {/* <div className="todo">
         <div className="todo-item one">
           <label className="column-name" htmlFor="add">
             Lägg till
@@ -31,7 +34,7 @@ function Todo() {
             <li className="item"></li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
