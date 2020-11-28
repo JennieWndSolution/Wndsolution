@@ -66,17 +66,21 @@ function Hus() {
     },
   ];
   return (
-    <div className={styles.house}>
+    <div className={styles.card_container}>
       {houses.map((house, idx) => (
         <div key={idx} className={styles.card}>
-          <div className={styles.header}>
+          <div className={styles.card_header}>
             <a href={house.link} target="_blank">
-              <img src={house.img} alt={house.alt} />
+              <img
+                className={styles.header_img}
+                src={house.img}
+                alt={house.alt}
+              />
             </a>
           </div>
-          <div className={styles.body}>
+          <div className={styles.card_body}>
             {house.likable_houses.map((h, h_idx) => (
-              <div key={h_idx}>
+              <div key={h_idx} className={styles.text_content}>
                 Hus vi gillar: <a href={h.house_link}>{h.house_name}</a>
               </div>
             ))}
