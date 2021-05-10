@@ -26,6 +26,9 @@ function Layout({ children }) {
     setvisibleMenu(!visibleMenu);
   };
 
+  const d = new Date();
+  const year = d.getFullYear();
+
   return (
     <>
       <Head>
@@ -39,6 +42,12 @@ function Layout({ children }) {
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+        ></link>
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossOrigin="anonymous"
         ></link>
       </Head>
 
@@ -78,7 +87,7 @@ function Layout({ children }) {
         <div className={styles.main}>{children}</div>
       </main>
 
-      <footer className={styles.footer}>© 2020 House Project</footer>
+      <footer className={styles.footer}>© {year} House Project</footer>
       <script
         src="https://kit.fontawesome.com/f3d6559d6e.js"
         crossOrigin="anonymous"
