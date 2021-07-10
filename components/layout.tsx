@@ -2,10 +2,19 @@ import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import the FontAwesomeIcon component
+import {
+  faSearch,
+  faStar,
+  faStarHalf,
+  faStarOfDavid,
+  faStarOfLife,
+} from "@fortawesome/free-solid-svg-icons"; // import the icons you need
 
 function Layout({ children }) {
   const [visibleMenu, setvisibleMenu] = useState(false);
   const menuItems = [
+    { name: "Hem", link: "/" },
     { name: "Husleverantörer", link: "/hus" },
     { name: "Områden", link: "/areas" },
     { name: "Kalkyl", link: "/budget" },
@@ -22,8 +31,12 @@ function Layout({ children }) {
     setvisibleMenu(!visibleMenu);
   }, []);
 
-  const toggleVisibility = () => {
-    setvisibleMenu(!visibleMenu);
+  const toggleVisibility = (close?: boolean) => {
+    if (close) {
+      setvisibleMenu(false);
+    } else {
+      setvisibleMenu(!visibleMenu);
+    }
   };
 
   const d = new Date();
@@ -59,12 +72,17 @@ function Layout({ children }) {
               type="button"
               onClick={() => toggleVisibility()}
             >
-              <i aria-hidden className="fas fa-hamburger fa-3x"></i>
+              <FontAwesomeIcon size="2x" icon={faStar}></FontAwesomeIcon>
             </button>
           </nav>
-          <Link href={"/"}>
+          <Link href={"/#"}>
             <div className={styles.logo}>
-              <h1 className={styles.title}>House Project</h1>
+              <h1
+                className={styles.title}
+                onClick={() => toggleVisibility(true)}
+              >
+                House Project
+              </h1>
             </div>
           </Link>
         </div>
@@ -73,25 +91,25 @@ function Layout({ children }) {
             {menuItems.map((menuItem, idx) => (
               <li key={idx} className={styles.menu_item}>
                 <Link href={menuItem.link}>
-                  <a className="test" onClick={() => toggleVisibility()}>
-                    {menuItem.name}
-                  </a>
+                  <a onClick={() => toggleVisibility()}>{menuItem.name}</a>
                 </Link>
               </li>
             ))}
           </ul>
         )}
       </header>
+      <div className="bg">
+        <main className={styles.container}>
+          {/* <Stepper items={processItems}></Stepper> */}
+          <div className={styles.main}>{children}</div>
+        </main>
 
-      <main className={styles.container}>
-        <div className={styles.main}>{children}</div>
-      </main>
-
-      <footer className={styles.footer}>© {year} House Project</footer>
-      <script
-        src="https://kit.fontawesome.com/f3d6559d6e.js"
-        crossOrigin="anonymous"
-      ></script>
+        <footer className={styles.footer}>© {year} House Project</footer>
+        <script
+          src="https://kit.fontawesome.com/f3d6559d6e.js"
+          crossOrigin="anonymous"
+        ></script>
+      </div>
     </>
   );
 }

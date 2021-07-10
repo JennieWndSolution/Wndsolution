@@ -3,8 +3,8 @@ function Todo() {
 
   return (
     <div>
-      <div>Budget 6 000 000 000</div>
-      <div>Maxtak 8 000 000 000</div>
+      <div>Budget 6 000 000</div>
+      <div>Maxtak 8 000 000</div>
       <div>Delar av budget</div>
       {/* <div className="todo">
         <div className="todo-item one">

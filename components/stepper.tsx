@@ -3,34 +3,40 @@ import "../styles/Home.module.scss";
 
 export interface IStepper {
   name: string;
-  active: boolean;
+  status: StepperStatus;
   id: string;
-  heading: string;
+}
+
+export enum StepperStatus {
+  completed = "completed",
+  active = "active",
+  left = "left",
+  disabled = "disabled",
 }
 
 export const Stepper = ({ items }) => {
-  console.log(items);
-
   return (
     <div className="container">
-      <div className="stepper">
+      <div className="stepper2">
         <ul className="nav nav-tabs" role="tablist">
           {items.map((item: IStepper, id) => {
             return (
               <Fragment key={`${item.id}-${id}`}>
                 <li
                   role="presentation"
-                  className={`${item.active ? "active" : "disabled"}`}
+                  className={`${item.status} item ${
+                    item.status === "active" ? "is-active" : ""
+                  }`}
                 >
                   <a
                     className="persistant-disabled"
-                    href={`${item.id}`}
+                    href={`${item.status === "active" ? item.id : "#"}`}
                     data-toggle="tab"
                     aria-controls={`${item.id}`}
                     role="tab"
-                    title="Step 1"
+                    title={item.name}
                   >
-                    <span className="round-tab">{id + 1}</span>
+                    <div className="round-tab vertical-center">{item.name}</div>
                   </a>
                 </li>
               </Fragment>
